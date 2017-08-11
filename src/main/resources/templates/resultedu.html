@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Resume</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+<body>
+<h1>Your education added successfully</h1>
+<p th:text="'Education: ' + ${newEdu.degree} + 'in' + ${newEdu.major}"/>
+<p th:text="${newEdu.uni}"/>
+<p th:text="${newEdu.graduatedate}"/>
+
+<a href="/index">Continue</a>
+
+</body>
+</html>

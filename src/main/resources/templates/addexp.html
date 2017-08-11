@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add your working experience</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+
+<body>
+<h1 th:text="${addexpmessage}">This should not display</h1>
+<form action="#" th:action="@{/addexp}" th:object="${newExp}" method="post">
+
+    <!--<span th:if="${#fields.hasErrors('name')}" th:error="*{name}">Name Error</span>-->
+    <p>Enter your title: <input type="text" th:field="*{title}"/></p>
+    <p>Enter your company: <input type="text" th:field="*{company}"/></p>
+    <p>Enter your start date: <input type="text" th:field="*{startdate}"/></p>
+    <p>Enter your end date: <input type="text" th:field="*{enddate}"/></p>
+    <p>Enter your duties: <input type="text" th:field="*{duty}"/></p>
+    <input type="submit" value="Add Experience"/>
+    <input type="reset" value="Reset"/>
+
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resume</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+<body>
+
+<!--list persons-->
+<h1>Your Resume</h1>
+    <th:block th:each="singleperson:${persons}">
+        <tr>
+            <td><p th:text="${singleperson.name}"/></td>
+            <td><p th:text="${singleperson.email}"/></td>
+        </tr>
+    </th:block>
+
+<!--list all educations-->
+<h3>Education</h3>
+    <th:block th:each="singleedu:${edus}">
+        <tr>
+            <p th:text="${singleedu.degree}+' in '+${singleedu.major}"/>
+            <p th:text="${singleedu.uni}+', '+${singleedu.graduatedate}"/>
+        </tr>
+    </th:block>
+
+<!--list all working experiences-->
+<h3>Experience</h3>
+    <th:block th:each="singleexp:${exps}">
+        <tr>
+            <p th:text="${singleexp.title}"/>
+            <p th:text="${singleexp.company}+', '+${singleexp.startdate}+' - '+${singleexp.enddate}"/>
+            <p th:text="${singleexp.duty}"/>
+        </tr>
+    </th:block>
+
+<!--list all skills-->
+<h3>Skills</h3>
+    <th:block th:each="singleski:${skis}">
+        <tr>
+            <p th:text="${singleski.skill} + ', '+ ${singleski.level}"/>
+        </tr>
+    </th:block>
+
+<!--initiates a GET back to /addresume-->
+<a href="/addperson">Add another person</a>
+</body>
+</html>

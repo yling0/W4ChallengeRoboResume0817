@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add your skills</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+
+<body>
+<h1 th:text="${addskimessage}">This should not display</h1>
+<form action="#" th:action="@{/addski}" th:object="${newSki}" method="post">
+
+    <!--<span th:if="${#fields.hasErrors('name')}" th:error="*{name}">Name Error</span>-->
+    <p>Enter your skills: <input type="text" th:field="*{skill}"/></p>
+    <p>Enter your skills' level: <input type="text" th:field="*{level}"/></p>
+    <input type="submit" value="Add Skills"/>
+    <input type="reset" value="Reset"/>
+
+</form>
+
+</body>
+
+</html>

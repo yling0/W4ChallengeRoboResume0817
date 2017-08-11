@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add your information</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+
+<body>
+<h1 th:text="${addpersonmessage}">This should not display</h1>
+<form action="#" th:action="@{/addperson}" th:object="${newPerson}" method="post">
+
+    <!--<span th:if="${#fields.hasErrors('name')}" th:error="*{name}">Name Error</span>-->
+    <p>Enter your name: <input type="text" th:field="*{name}"/></p>
+    <p>Enter your email: <input type="text" th:field="*{email}"/></p>
+    <input type="submit" value="Submit"/>
+
+</form>
+
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Resume</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+</head>
+<body>
+<h1>Your working experience added successfully</h1>
+<p th:text="${newExp.title}"/>
+<p th:text="${newExp.company} +', '+${newExp.startdate}+' - '+${newExp.enddate}"/>
+<p th:text="${newExp.duty}"/>
+
+</body>
+</html>
