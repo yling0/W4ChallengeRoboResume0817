@@ -15,7 +15,8 @@ public class Experience
     private String company;
     private String startdate;
     private String enddate;
-    private String duty;
+    private String duty1;
+    private String duty2;
 
 
     public long getId() {
@@ -58,11 +59,20 @@ public class Experience
         this.enddate = enddate;
     }
 
-    public String getDuty() {
-        return duty;
+
+    public String getDuty1() {
+        return duty1;
     }
 
-    public void setDuty(String duty) {
-        this.duty = duty;
+    public void setDuty1(String duty1) {
+        this.duty1 = duty1;
+    }
+
+    public String getDuty2() {
+        return duty2;
+    }
+
+    public void setDuty2(String duty2) {
+        this.duty2 = duty2;
     }
 }

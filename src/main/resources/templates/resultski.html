@@ -1,13 +1,52 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Your Resume</title>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
-</head>
-<body>
-<h1>Your skills added successfully</h1>
-<p th:text="${newSki.skill} + ', ' + ${newSki.level}"/>
+<head lang="en">
 
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Skills</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+<!-- Header -->
+<header class="header" id="top">
+    <div class="text-vertical-center">
+        <h2>Your skills added successfully</h2>
+        <br/>
+        <h4><p th:text="${newSki.skill} + ', ' + ${newSki.level}"/></h4>
+        <a href="/addski"><button class="btn btn-dark">Add another</button></a>
+        <a href="/index"><button class="btn btn-dark">Back Home</button></a>
+
+
+
+    </div>
+</header>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/stylish-portfolio.js"></script>
 
 </body>
+
 </html>

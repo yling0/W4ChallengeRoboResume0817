@@ -1,48 +1,85 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
+<head lang="en">
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
     <title>Resume</title>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+
 </head>
 <body>
+<!-- Header -->
+<header class="header" id="top">
+    <div class="text-vertical-center">
+        <!--list persons-->
+        <h1>Your Resume</h1>
+        <th:block th:each="singleperson:${persons}">
+            <tr>
+                <td><p th:text="${singleperson.name}"/></td>
+                <td><p th:text="${singleperson.email}"/></td>
+            </tr>
+        </th:block>
 
-<!--list persons-->
-<h1>Your Resume</h1>
-    <th:block th:each="singleperson:${persons}">
-        <tr>
-            <td><p th:text="${singleperson.name}"/></td>
-            <td><p th:text="${singleperson.email}"/></td>
-        </tr>
-    </th:block>
+        <!--list all educations-->
+        <h3>Education</h3>
+        <th:block th:each="singleedu:${educationList}">
+            <tr>
+                <p th:text="${singleedu.degree}+' in '+${singleedu.major}"/>
+                <p th:text="${singleedu.uni}+', '+${singleedu.graduatedate}"/>
+            </tr>
+            <br/>
+        </th:block>
 
-<!--list all educations-->
-<h3>Education</h3>
-    <th:block th:each="singleedu:${educationList}">
-        <tr>
-            <p th:text="${singleedu.degree}+' in '+${singleedu.major}"/>
-            <p th:text="${singleedu.uni}+', '+${singleedu.graduatedate}"/>
-        </tr>
-    </th:block>
+        <!--list all working experiences-->
+        <h3>Experience</h3>
+        <th:block th:each="singleexp:${experienceList}">
+            <tr>
+                <p th:text="${singleexp.title}"/>
+                <p th:text="${singleexp.company}+', '+${singleexp.startdate}+' - '+${singleexp.enddate}"/>
+                <p th:text="'-Duty1: ' + ${singleexp.duty1}"/>
+                <p th:text="'-Duty2: ' + ${singleexp.duty2}"></p>
+                <br/>
+            </tr>
+        </th:block>
 
-<!--list all working experiences-->
-<h3>Experience</h3>
-    <th:block th:each="singleexp:${experienceList}">
-        <tr>
-            <p th:text="${singleexp.title}"/>
-            <p th:text="${singleexp.company}+', '+${singleexp.startdate}+' - '+${singleexp.enddate}"/>
-            <p th:text="${singleexp.duty}"/>
-        </tr>
-    </th:block>
+        <!--list all skills-->
+        <h3>Skills</h3>
+        <th:block th:each="singleski:${skillsList}">
+            <tr>
+                <p th:text="${singleski.skill} + ', '+ ${singleski.level}"/>
+            </tr>
+        </th:block>
 
-<!--list all skills-->
-<h3>Skills</h3>
-    <th:block th:each="singleski:${skillsList}">
-        <tr>
-            <p th:text="${singleski.skill} + ', '+ ${singleski.level}"/>
-        </tr>
-    </th:block>
+        <!--initiates a GET back to /index-->
+        <a href="/index"><button class="btn btn-dark">Back Home</button></a>
 
-<!--initiates a GET back to /addresume-->
-<a href="/addperson">Add another person</a>
+    </div>
+</header>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/stylish-portfolio.js"></script>
+
 </body>
+
 </html>

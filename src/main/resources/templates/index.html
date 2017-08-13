@@ -1,15 +1,86 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
     <title>Index</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+
 </head>
 
+
 <body>
-<h1 th:text="${indexmessage}">Welcome...no other message available</h1>
-<p><a href="/addedu">Add your education</a></p>
-<p><a href="/addexp">Add your working experience</a></p>
-<p><a href="/addski">Add your skills</a></p>
-<p><a href="/listresume">Show your resume</a></p>
+<!--<section id="portfolio" class="portfolio">-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto text-center">
+                <h1 th:text="${indexmessage}" align="center">Welcome...no other message available</h1>
+                <hr class="small"/>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="portfolio-item">
+                            <a href="/addedu">
+                                <div style="background:url('img/portfolio-1.jpg') no-repeat; width: 450px; height: 300px;">
+                                    <font size="6" color="#20b2aa">Add your Education</font>
+                                </div>
+                                <!--<img class="img-portfolio img-fluid" src="img/portfolio-1.jpg">-->
+                                <!--<p><a href="/addedu">Add your education</a></p>-->
+                                <!--<div style="background:url('img.jpg') no-repeat;width:100px;height:50px">添加文字</div>-->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="portfolio-item">
+                            <a href="/addexp">
+                                <div style="background:url('img/portfolio-2.jpg') no-repeat; width: 450px; height: 300px">
+                                    <font size="6" color="#20b2aa">Add your Experience</font>
+                                </div>
+                                <!--<img class="img-portfolio img-fluid" src="img/portfolio-2.jpg"/>-->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="portfolio-item">
+                            <a href="/addski">
+                                <div style="background:url('img/portfolio-3.jpg') no-repeat; width: 450px; height: 300px">
+                                    <font size="6" color="#20b2aa">Add your Skills</font>
+                                </div>
+                                <!--<img class="img-portfolio img-fluid" src="img/portfolio-3.jpg"/>-->
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="portfolio-item">
+                            <a href="/listresume">
+                                <div style="background:url('img/portfolio-4.jpg') no-repeat; width: 450px; height: 300px">
+                                    <font size="6" color="#20b2aa">Show your Resume</font>
+                                </div>
+                                <!--<img class="img-portfolio img-fluid" src="img/portfolio-4.jpg"/>-->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.col-lg-10 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+<!--</section>-->
+
 </body>
+
 </html>

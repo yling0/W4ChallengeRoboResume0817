@@ -1,25 +1,58 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Add your working experience</title>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+<head lang="en">
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Experience</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+
 </head>
 
 <body>
-<h1 th:text="${addexpmessage}">This should not display</h1>
-<form action="#" th:action="@{/addexp}" th:object="${newExp}" method="post">
+<!-- Header -->
+<header class="header" id="top">
+    <div class="text-vertical-center">
+        <h2 th:text="${addexpmessage}">This should not display</h2>
+        <br/>
+        <form action="#" th:action="@{/addexp}" th:object="${newExp}" method="post">
+            <!--<span th:if="${#fields.hasErrors('name')}" th:error="*{name}">Name Error</span>-->
+            <p>Enter your title: <input type="text" th:field="*{title}"/></p>
+            <p>Enter your company: <input type="text" th:field="*{company}"/></p>
+            <p>Enter your start date: <input type="text" th:field="*{startdate}"/></p>
+            <p>Enter your end date: <input type="text" th:field="*{enddate}"/></p>
+            <p>Enter your duties: <input type="text" th:field="*{duty1}"/></p>
+            <p>Enter your duties: <input type="text" th:field="*{duty2}"/></p>
+            <button type="submit" class="btn btn-dark" value="Add Experience">Add Experience</button>
+            <button type="reset" class="btn btn-dark" value="Reset">Reset</button>
+        </form>
+    </div>
+</header>
 
-    <!--<span th:if="${#fields.hasErrors('name')}" th:error="*{name}">Name Error</span>-->
-    <p>Enter your title: <input type="text" th:field="*{title}"/></p>
-    <p>Enter your company: <input type="text" th:field="*{company}"/></p>
-    <p>Enter your start date: <input type="text" th:field="*{startdate}"/></p>
-    <p>Enter your end date: <input type="text" th:field="*{enddate}"/></p>
-    <p>Enter your duties: <input type="text" th:field="*{duty}"/></p>
-    <input type="submit" value="Add Experience"/>
-    <input type="reset" value="Reset"/>
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/popper/popper.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-</form>
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="js/stylish-portfolio.js"></script>
 
 </body>
+
 
 </html>

@@ -36,8 +36,7 @@ public class MainController
     public String addPerson(Model model)
     {
         model.addAttribute("newPerson", new Person());
-        model.addAttribute("addpersonmessage", "Welcome to Robo Resume!" +
-                "Enter your name to start:");
+        model.addAttribute("addpersonmessage", "Welcome to Robo Resume!");
         return "addperson";
     }
 
@@ -145,12 +144,6 @@ public class MainController
         person.setMyskills(skillsAlist);
         model.addAttribute("skillsList", person.getMyskills());
 
-//        Iterable<Education> educationList = educationRepo.findAll();
-//        model.addAttribute("edus", educationList);
-//        Iterable<Experience> experienceList = experienceRepo.findAll();
-//        model.addAttribute("exps", experienceList);
-//        Iterable<Skills> skillsList = skillsRepo.findAll();
-//        model.addAttribute("skis", skillsList);
         return "listresume";
     }
 
