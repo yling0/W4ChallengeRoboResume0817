@@ -11,9 +11,13 @@ import me.yling.w3challenge.repositories.SkillsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
+import java.util.ArrayList;
 
 @Controller
 public class MainController
@@ -39,8 +43,12 @@ public class MainController
 
     //save inputted user info in database
     @PostMapping ("/addperson")
-    public String postPerson(@ModelAttribute ("newPerson")Person person)
+    public String postPerson(@Valid @ModelAttribute ("newPerson")Person person, BindingResult bindingResult)
     {
+        if (bindingResult.hasErrors())
+        {
+            return "addperson";
+        }
         personRepo.save(person);
         return "result";
     }
@@ -66,8 +74,12 @@ public class MainController
 
     //save edu info in database
     @PostMapping ("/addedu")
-    public String postEdu(@ModelAttribute ("newEdu")Education education)
+    public String postEdu(@Valid @ModelAttribute ("newEdu")Education education, BindingResult bindingResult)
     {
+        if (bindingResult.hasErrors())
+        {
+            return "addedu";
+        }
         educationRepo.save(education);
         return "resultedu";
     }
@@ -111,14 +123,34 @@ public class MainController
     @GetMapping("/listresume")
     public String listPerson(Model model)
     {
+        Person person = new Person();
         Iterable<Person> personList = personRepo.findAll();
         model.addAttribute("persons", personList);
+
         Iterable<Education> educationList = educationRepo.findAll();
-        model.addAttribute("edus", educationList);
+        ArrayList<Education> educationAlist = new ArrayList<>();
+        educationAlist = (ArrayList<Education>) educationList;
+        person.setEducations(educationAlist);
+        model.addAttribute("educationList", person.getEducations());
+
         Iterable<Experience> experienceList = experienceRepo.findAll();
-        model.addAttribute("exps", experienceList);
+        ArrayList<Experience> experienceAlist = new ArrayList<>();
+        experienceAlist = (ArrayList<Experience>) experienceList;
+        person.setExperiences(experienceAlist);
+        model.addAttribute("experienceList", person.getExperiences());
+
         Iterable<Skills> skillsList = skillsRepo.findAll();
-        model.addAttribute("skis", skillsList);
+        ArrayList<Skills> skillsAlist = new ArrayList<>();
+        skillsAlist = (ArrayList<Skills>) skillsList;
+        person.setMyskills(skillsAlist);
+        model.addAttribute("skillsList", person.getMyskills());
+
+//        Iterable<Education> educationList = educationRepo.findAll();
+//        model.addAttribute("edus", educationList);
+//        Iterable<Experience> experienceList = experienceRepo.findAll();
+//        model.addAttribute("exps", experienceList);
+//        Iterable<Skills> skillsList = skillsRepo.findAll();
+//        model.addAttribute("skis", skillsList);
         return "listresume";
     }
 
