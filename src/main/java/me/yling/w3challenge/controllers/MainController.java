@@ -94,8 +94,12 @@ public class MainController
 
     //save work experience info in database
     @PostMapping ("/addexp")
-    public String postExp(@ModelAttribute ("newExp")Experience experience)
+    public String postExp(@Valid @ModelAttribute ("newExp")Experience experience, BindingResult bindingResult)
     {
+        if (bindingResult.hasErrors())
+        {
+            return "addexp";
+        }
         experienceRepo.save(experience);
         return "resultexp";
     }
@@ -112,8 +116,12 @@ public class MainController
 
     //save skills info in database
     @PostMapping ("/addski")
-    public String postSki(@ModelAttribute ("newSki")Skills skills)
+    public String postSki(@Valid @ModelAttribute ("newSki")Skills skills, BindingResult bindingResult)
     {
+        if (bindingResult.hasErrors())
+        {
+            return "addski";
+        }
         skillsRepo.save(skills);
         return "resultski";
     }
