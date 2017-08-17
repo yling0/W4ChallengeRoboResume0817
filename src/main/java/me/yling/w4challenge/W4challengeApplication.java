@@ -1,12 +1,12 @@
-package me.yling.w3challenge;
+package me.yling.w4challenge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class W3challengeApplication {
+public class W4challengeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(W3challengeApplication.class, args);
+		SpringApplication.run(W4challengeApplication.class, args);
 	}
 }

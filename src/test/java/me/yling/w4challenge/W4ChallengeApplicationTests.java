@@ -1,4 +1,4 @@
-package me.yling.w3challenge;
+package me.yling.w4challenge;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class W3challengeApplicationTests {
+public class W4ChallengeApplicationTests {
 
 	@Test
 	public void contextLoads() {

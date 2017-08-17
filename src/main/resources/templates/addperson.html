@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
 
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+    <link href="../../css/stylish-portfolio.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -29,6 +29,7 @@
         <font size="4">Enter your name and email to start</font>
         <br/>
         <form action="#" th:action="@{/addperson}" th:object="${newPerson}" method="post">
+            <input type="hidden" th:field="*{id}" />
             <span th:if="${#fields.hasErrors('name')}" th:error="*{name}">Name Error</span>
             <h4><p>Name: <input type="text" th:field="*{name}"/></p></h4>
             <h4><p>Email: <input type="text" th:field="*{email}"/></p></h4>

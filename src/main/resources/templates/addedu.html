@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
 
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+    <link href="../../css/stylish-portfolio.css" rel="stylesheet"/>
 
 </head>
 
@@ -28,6 +28,8 @@
         <h2 th:text="${addedumessage}">This should not display</h2>
         <br/>
         <form action="#" th:action="@{/addedu}" th:object="${newEdu}" method="post">
+            <input type="hidden" th:field="*{id}" />
+
             <span th:if="${#fields.hasErrors('degree')}" th:error="*{degree}">Degree Error</span>
             <p>Enter your degree: <input type="text" th:field="*{degree}"/></p>
             <span th:if="${#fields.hasErrors('major')}" th:error="*{major}">Major Error</span>

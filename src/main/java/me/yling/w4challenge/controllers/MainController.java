@@ -1,20 +1,18 @@
-package me.yling.w3challenge.controllers;
+package me.yling.w4challenge.controllers;
 
-import me.yling.w3challenge.models.Education;
-import me.yling.w3challenge.models.Experience;
-import me.yling.w3challenge.models.Person;
-import me.yling.w3challenge.models.Skills;
-import me.yling.w3challenge.repositories.EducationRepo;
-import me.yling.w3challenge.repositories.ExperienceRepo;
-import me.yling.w3challenge.repositories.PersonRepo;
-import me.yling.w3challenge.repositories.SkillsRepo;
+import me.yling.w4challenge.models.Education;
+import me.yling.w4challenge.models.Experience;
+import me.yling.w4challenge.models.Person;
+import me.yling.w4challenge.models.Skills;
+import me.yling.w4challenge.repositories.EducationRepo;
+import me.yling.w4challenge.repositories.ExperienceRepo;
+import me.yling.w4challenge.repositories.PersonRepo;
+import me.yling.w4challenge.repositories.SkillsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -154,6 +152,59 @@ public class MainController
 
         return "listresume";
     }
+
+
+    @RequestMapping("/updateperson/{id}")
+    public String updatePerson (@PathVariable("id") long id, Model model)
+    {
+        model.addAttribute("newPerson", personRepo.findOne(id));
+        return "addperson";
+    }
+
+    @RequestMapping("/updateedu/{id}")
+    public String updateEdu (@PathVariable("id") long id, Model model)
+    {
+        model.addAttribute("newEdu", educationRepo.findOne(id));
+        return "addedu";
+    }
+
+    @RequestMapping("/deleteedu/{id}")
+    public String delEdu(@PathVariable("id") long id, Model model)
+    {
+        educationRepo.delete(id);
+        return "redirect:/listresume";
+    }
+
+    @RequestMapping("/updateexp/{id}")
+    public String updateExp (@PathVariable("id") long id, Model model)
+    {
+        model.addAttribute("newExp", experienceRepo.findOne(id));
+        return "addexp";
+    }
+
+    @RequestMapping("/deleteexp/{id}")
+    public String delExp(@PathVariable("id") long id, Model model)
+    {
+        experienceRepo.delete(id);
+        return "redirect:/listresume";
+    }
+
+    @RequestMapping("/updateski/{id}")
+    public String updateSki (@PathVariable("id") long id, Model model)
+    {
+        model.addAttribute("newSki", skillsRepo.findOne(id));
+        return "addski";
+    }
+
+    @RequestMapping("/deleteski/{id}")
+    public String delSki(@PathVariable("id") long id, Model model)
+    {
+        skillsRepo.delete(id);
+        return "redirect:/listresume";
+    }
+
+
+
 
 
 }

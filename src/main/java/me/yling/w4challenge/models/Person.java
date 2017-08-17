@@ -1,4 +1,4 @@
-package me.yling.w3challenge.models;
+package me.yling.w4challenge.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

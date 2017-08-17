@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
 
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+    <link href="../../css/stylish-portfolio.css" rel="stylesheet"/>
 </head>
 <body>
 <!-- Header -->
@@ -25,6 +25,7 @@
         <h2 th:text="${addskimessage}">This should not display</h2>
         <br/>
         <form action="#" th:action="@{/addski}" th:object="${newSki}" method="post">
+            <input type="hidden" th:field="*{id}" />
             <span th:if="${#fields.hasErrors('skill')}" th:error="*{skill}">Degree Error</span>
             <p>Enter your skills: <input type="text" th:field="*{skill}"/></p>
             <span th:if="${#fields.hasErrors('level')}" th:error="*{level}">Degree Error</span>

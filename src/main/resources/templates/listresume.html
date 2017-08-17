@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
 
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+    <link href="../../css/stylish-portfolio.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -28,40 +28,56 @@
         <h1>Your Resume</h1>
         <th:block th:each="singleperson:${persons}">
             <tr>
-                <td><p th:text="${singleperson.name}"/></td>
-                <td><p th:text="${singleperson.email}"/></td>
+                <p></p>
+                <p th:text="${singleperson.name}"/>
+                <p th:text="${singleperson.email}"/>
+                <td><a th:href="@{/updateperson/{id}(id=${singleperson.id})}">Update</a></td>
             </tr>
         </th:block>
+
 
         <!--list all educations-->
         <h3>Education</h3>
         <th:block th:each="singleedu:${educationList}">
             <tr>
+                <p></p>
                 <p th:text="${singleedu.degree}+' in '+${singleedu.major}"/>
                 <p th:text="${singleedu.uni}+', '+${singleedu.graduatedate}"/>
+                <td>
+                    <a th:href="@{/updateedu/{id}(id=${singleedu.id})}">Update</a> -
+                    <a th:href="@{/deleteedu/{id}(id=${singleedu.id})}">Delete</a>
+                </td>
+                <br />
             </tr>
-            <br/>
         </th:block>
+
 
         <!--list all working experiences-->
         <h3>Experience</h3>
         <th:block th:each="singleexp:${experienceList}">
             <tr>
+                <p></p>
                 <p th:text="${singleexp.title}"/>
                 <p th:text="${singleexp.company}+', '+${singleexp.startdate}+' - '+${singleexp.enddate}"/>
                 <p th:text="'-Duty1: ' + ${singleexp.duty1}"/>
                 <p th:text="'-Duty2: ' + ${singleexp.duty2}"></p>
-                <br/>
+                <a th:href="@{/updateexp/{id}(id=${singleexp.id})}">Update</a> -
+                <a th:href="@{/deleteexp/{id}(id=${singleexp.id})}">Delete</a>
             </tr>
         </th:block>
+
 
         <!--list all skills-->
         <h3>Skills</h3>
         <th:block th:each="singleski:${skillsList}">
             <tr>
+                <p></p>
                 <p th:text="${singleski.skill} + ', '+ ${singleski.level}"/>
+                <a th:href="@{/updateski/{id}(id=${singleski.id})}">Update</a> -
+                <a th:href="@{/deleteski/{id}(id=${singleski.id})}">Delete</a>
             </tr>
         </th:block>
+
 
         <!--initiates a GET back to /index-->
         <a href="/index"><button class="btn btn-dark">Back Home</button></a>
